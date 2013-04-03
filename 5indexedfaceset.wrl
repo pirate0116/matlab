@@ -1,0 +1,36 @@
+#VRML V2.0 utf8
+#IndexedFaceSet example: a pyramid
+Shape {
+	appearance Appearance{
+		material Material { 
+			diffuseColor     1 0 0 #simple red
+			}
+		}
+	geometry IndexedFaceSet {
+		coord Coordinate {
+                    point [
+				# bottom 
+				-1.0 -1.0 1.0,	#vertex 0
+				1.0 -1.0 1.0,	#vertex 1
+				1.0 -1.0 -1.0,	#vertex 2
+				-1.0 -1.0 -1.0,	#vertex 3
+				# top
+				0.0 1.0 0.0		#vertex 4
+                    ]
+                }
+		coordIndex [
+			#bottom square
+			 0, 3, 2, 1, 0, -1,
+			#side1
+			 0, 1, 4, -1,
+			#side2
+			 1, 2, 4, -1,
+			#side3
+			 2, 3, 4, -1,
+			#side4
+			 3, 0, 4, -1,
+			]
+			
+	}
+}
+
