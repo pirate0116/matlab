@@ -1,4 +1,6 @@
-function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2,Ne,N]=patchcurvature2(FV,neighbs)
+%function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2,Ne,N]=patchcurvature2(FV,neighbs)
+function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2,Ne,N]=patchcurvature2(pointCloud,neighbs)%修改输入为三维点云
+
 % This function calculates the principal curvature directions and values
 % of a triangulated mesh. //计算三角网格主曲率方向/值
 %
@@ -83,8 +85,8 @@ function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2,Ne,N]=patchcurvature2(FV,nei
 if(nargin<2), neighbs=2; end
 
 % ----------add---2013.4.7---------------
-% ----------三维网格-----------------------
-TRI = delaunay(XX,YY);FV = struct('faces',TRI,'vertices',[XX,YY,ZZ]);
+% ----------生成三维网格-----------------------
+TRI = delaunay(pointCloud(:,1),pointCloud(:,2));FV = struct('faces',TRI,'vertices',[pointCloud(:,1),pointCloud(:,2),pointCloud(:,3)]);
 % ---------end----------------------------
 
 % Number of vertices //顶点个数（自己设置）
