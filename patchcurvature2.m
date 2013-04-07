@@ -82,6 +82,11 @@ function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2,Ne,N]=patchcurvature2(FV,nei
 % if(nargin<2), usethird=false; end
 if(nargin<2), neighbs=2; end
 
+% ----------add---2013.4.7---------------
+% ----------三维网格-----------------------
+TRI = delaunay(XX,YY);FV = struct('faces',TRI,'vertices',[XX,YY,ZZ]);
+% ---------end----------------------------
+
 % Number of vertices //顶点个数（自己设置）
 nv=size(FV.vertices,1);
 
